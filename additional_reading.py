@@ -49,8 +49,7 @@ def main(refs, ofile):
                 if uid:
                     uid = f"https://www.doi.org/{uid}"
                 else:
-                    # issn search with https://www.crossref.org/titleList/
-                    uid = paperrefs[refid - 1].get("ISSN")
+                    uid = f"https://www.doi.org/{doi} ref {refid}"
 
                 fout.write(f"  - {uid}\n")
 
