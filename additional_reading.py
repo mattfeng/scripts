@@ -39,6 +39,8 @@ def main(refs, ofile):
     paperrefs = get_refs(doi)
 
     with open(ofile, "w") as fout:
+        fout.write(f"original article: https://www.doi.org/{doi}\n")
+
         for topic, refids in data.items():
             refids = normalize(refids)
 
