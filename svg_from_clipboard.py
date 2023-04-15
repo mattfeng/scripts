@@ -10,10 +10,18 @@ pdfhex = sp.run(shlex.split(command), capture_output=True).stdout.decode("utf-8"
 pdfdata = bytes.fromhex(pdfhex)
 pdfio = io.BytesIO(pdfdata)
 
-# with open("output.pdf", "wb") as f:
-#     f.write(pdfdata)
+with open("output.pdf", "wb") as f:
+    f.write(pdfdata)
 
-pdf = fitz.open(stream=pdfdata)
-svg = pdf[0].get_svg_image(matrix=fitz.Identity, text_as_path=True)
+command = "osascript -e 'the clipboard as \"mMOL\"'"
 
-print(svg)
+molhex = sp.run(shlex.split(command), capture_output=True).stdout.decode("utf-8").strip().split("mMOL")[1][:-1]
+moldata = bytes.fromhex(molhex)
+
+# def decode_moldata(data):
+#     counter = 0
+#     for c in data:
+#         if counter == 0:
+#             counter = ord(c)
+#         else:
+#             counter -= 1
