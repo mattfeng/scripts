@@ -5,7 +5,8 @@ from PIL import Image, ImageDraw, ImageFont
 from os.path import splitext, basename
 
 shortcuts = {
-    "weinberg": "Weinberg, The Biology of Cancer [2e]"
+    "weinberg": "Weinberg, The Biology of Cancer [2e]",
+    "mboc": "Alberts, Molecular Biology of the Cell [6e]"
 }
 
 def get_text_height(text, font, margin=10):
